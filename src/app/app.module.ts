@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { FormsModule } from '@angular/forms';
+import { SecondComponent } from './second/second.component';
 
 @NgModule({
-  declarations: [AppComponent, FirstComponent], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
+  declarations: [AppComponent, FirstComponent, SecondComponent], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

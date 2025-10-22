@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 export class FirstComponent {
   prenom: string = 'Brice';
   color: string = 'green';
+  show: boolean = false;
 
   traitement() {
     alert("J'ai été cliqué");
@@ -14,5 +15,9 @@ export class FirstComponent {
 
   updatePrenom(inp: any) {
     this.prenom = inp.value;
+  }
+
+  lireMessage(msg: any) {
+    this.prenom = msg;
   }
 }
