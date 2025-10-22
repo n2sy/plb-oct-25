@@ -12,7 +12,15 @@ import { ItemComponent } from './item/item.component';
 import { DetailsComponent } from './details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, FirstComponent, SecondComponent, CvComponent, ListeComponent, ItemComponent, DetailsComponent], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
+  declarations: [
+    AppComponent,
+    FirstComponent,
+    SecondComponent,
+    CvComponent,
+    ListeComponent,
+    ItemComponent,
+    DetailsComponent,
+  ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
