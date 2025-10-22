@@ -1,1 +1,6 @@
-<p>home-account works!</p>
+<app-add-account (eventToHome)="addNewAccount($event)"></app-add-account>
+
+@for (acc of allAccounts; track $index) {
+
+<app-item-account [oneAccount]="acc"></app-item-account>
+}
