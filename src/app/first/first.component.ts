@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-first',
+  templateUrl: './first.component.html',
+})
+export class FirstComponent {
+  prenom: string = 'Brice';
+  color: string = 'green';
+
+  traitement() {
+    alert("J'ai été cliqué");
+  }
+
+  updatePrenom(inp: any) {
+    this.prenom = inp.value;
+  }
+}
