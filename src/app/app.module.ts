@@ -10,6 +10,9 @@ import { CvComponent } from './cv/cv.component';
 import { ListeComponent } from './liste/liste.component';
 import { ItemComponent } from './item/item.component';
 import { DetailsComponent } from './details/details.component';
+import { AddAccountComponent } from './accounts/add-account/add-account.component';
+import { ItemAccountComponent } from './accounts/item-account/item-account.component';
+import { HomeAccountComponent } from './accounts/home-account/home-account.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { DetailsComponent } from './details/details.component';
     ListeComponent,
     ItemComponent,
     DetailsComponent,
+    AddAccountComponent,
+    ItemAccountComponent,
+    HomeAccountComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
