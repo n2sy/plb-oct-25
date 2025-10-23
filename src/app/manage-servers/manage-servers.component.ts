@@ -32,6 +32,7 @@ export class ManageServersComponent {
       status: 'stable',
     },
   ];
+  selectedStatut = '';
 
   affecterClasse(st) {
     return {
