@@ -22,6 +22,9 @@ import { SecondService } from './services/second.service';
 import { RecruterComponent } from './recruter/recruter.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     RecruterComponent,
     AccueilComponent,
     NavbarComponent,
+    InfosComponent,
+    AddComponent,
+    EditComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, FormsModule, ROUTING_PLB],
   //providers: [],
