@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { ROUTING_PLB } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FirstService } from './services/first.service';
 import { SecondService } from './services/second.service';
 import { RecruterComponent } from './recruter/recruter.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import { RecruterComponent } from './recruter/recruter.component';
     ShortPipe,
     FilterPipe,
     RecruterComponent,
+    AccueilComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, FormsModule, ROUTING_PLB],
   //providers: [],
   providers: [FirstService, SecondService],
   bootstrap: [AppComponent],
