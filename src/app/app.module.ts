@@ -15,6 +15,7 @@ import { ItemAccountComponent } from './accounts/item-account/item-account.compo
 import { HomeAccountComponent } from './accounts/home-account/home-account.component';
 import { DirectComponent } from './direct/direct.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { ShortPipe } from './pipes/short.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
     HomeAccountComponent,
     DirectComponent,
     ManageServersComponent,
+    ShortPipe,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

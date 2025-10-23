@@ -1,7 +1,8 @@
 <ul class="list-group">
   @for (server of tabServers; track $index) {
   <li [ngClass]="affecterClasse(server.status)" class="list-group-item">
-    {{ server.name }} - {{ server.type }} - {{ server.date_d }}
+    {{ server.name | short : 30 }} - {{ server.type | titlecase }} -
+    {{ server.date_d | date : "fullDate" | uppercase }}
     <span class="badge bg-secondary"> {{ server.status }}</span>
   </li>
 

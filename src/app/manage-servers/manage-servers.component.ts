@@ -37,7 +37,7 @@ export class ManageServersComponent {
     return {
       'list-group-item-success': st == 'stable',
       'list-group-item-danger': st == 'critical',
-      'list-group-item-warning': st == 'warning',
+      'list-group-item-warning': st == 'offline',
     };
   }
 }
