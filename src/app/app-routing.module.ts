@@ -11,10 +11,20 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 let myRoutes: Routes = [
   { path: '', component: AccueilComponent },
-  { path: 'cv', component: CvComponent },
-  { path: 'cv/add', component: AddComponent },
-  { path: 'cv/:id', component: InfosComponent },
-  { path: 'cv/:id/edit', component: EditComponent },
+  {
+    path: 'cv',
+    children: [
+      { path: '', component: CvComponent },
+      { path: 'add', component: AddComponent },
+      {
+        path: ':id',
+        children: [
+          { path: '', component: InfosComponent },
+          { path: 'edit', component: EditComponent },
+        ],
+      },
+    ],
+  },
   { path: 'servers', component: ManageServersComponent },
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'direct', component: DirectComponent },
