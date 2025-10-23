@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { GestionCandidatsService } from '../services/gestion-candidats.service';
+import { Candidat } from '../models/candidat';
 
 @Component({
   selector: 'app-infos',
@@ -8,7 +10,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class InfosComponent {
   id;
+  candidatCible: Candidat;
   private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+  private CandidatSer = inject(GestionCandidatsService);
 
   ngOnInit() {
     //1ere version
@@ -16,8 +21,11 @@ export class InfosComponent {
     //2eme version
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.id = p.get('id');
+        this.candidatCible = this.CandidatSer.getCandidatById(p.get('id'));
+        if (!this.candidatCible) this.router.navigateByUrl('/not-found');
       },
     });
+
+    //
   }
 }

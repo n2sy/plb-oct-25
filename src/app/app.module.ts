@@ -25,6 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InfosComponent } from './infos/infos.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EditComponent } from './edit/edit.component';
     InfosComponent,
     AddComponent,
     EditComponent,
+    NotFoundComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, FormsModule, ROUTING_PLB],
   //providers: [],
