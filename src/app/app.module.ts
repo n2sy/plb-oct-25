@@ -19,6 +19,7 @@ import { ShortPipe } from './pipes/short.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FirstService } from './services/first.service';
 import { SecondService } from './services/second.service';
+import { RecruterComponent } from './recruter/recruter.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { SecondService } from './services/second.service';
     ManageServersComponent,
     ShortPipe,
     FilterPipe,
+    RecruterComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   //providers: [],
