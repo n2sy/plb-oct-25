@@ -13,6 +13,8 @@ import { DetailsComponent } from './details/details.component';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { ItemAccountComponent } from './accounts/item-account/item-account.component';
 import { HomeAccountComponent } from './accounts/home-account/home-account.component';
+import { DirectComponent } from './direct/direct.component';
+import { ManageServersComponent } from './manage-servers/manage-servers.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { HomeAccountComponent } from './accounts/home-account/home-account.compo
     AddAccountComponent,
     ItemAccountComponent,
     HomeAccountComponent,
+    DirectComponent,
+    ManageServersComponent,
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -1,0 +1,21 @@
+<div
+  [ngStyle]="{
+    backgroundColor: 'red',
+    color: 'blue',
+    fontFamily: 'Garamond'
+  }"
+>
+  Formation Avec PLB (NgStyle)
+</div>
+
+<div
+  [ngClass]="{
+    c1: class1,
+    c2: class2,
+    c3: class3
+  }"
+>
+  Formation Avec PLB (NgClass)
+</div>
+
+<button (click)="switchClass()" class="btn btn-primary">Changer Classe</button>
