@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent {
   showRegister = true;
   showError = false;
   private authSer = inject(AuthService);
+  private router = inject(Router);
   submitHandler(f: NgForm) {
     if (this.showRegister) {
       this.authSer.inscription(f.value).subscribe({
@@ -29,6 +31,7 @@ export class LoginComponent {
         next: (response: any) => {
           alert(response.message);
           localStorage.setItem('access_token', response.token);
+          this.router.navigateByUrl('/');
         },
         error: (err) => {
           this.showError = true;

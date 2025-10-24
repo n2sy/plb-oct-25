@@ -9,6 +9,8 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { allowGuard } from './guards/allow.guard';
+import { blockGuard } from './guards/block.guard';
 
 let myRoutes: Routes = [
   { path: '', component: AccueilComponent },
@@ -16,12 +18,12 @@ let myRoutes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddComponent },
+      { path: 'add', component: AddComponent, canActivate: [allowGuard] },
       {
         path: ':id',
         children: [
           { path: '', component: InfosComponent },
-          { path: 'edit', component: EditComponent },
+          { path: 'edit', component: EditComponent, canActivate: [allowGuard] },
         ],
       },
     ],
@@ -29,7 +31,7 @@ let myRoutes: Routes = [
   { path: 'servers', component: ManageServersComponent },
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'direct', component: DirectComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [blockGuard] },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
