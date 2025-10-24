@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,35 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   competenceParDefaut = 'python';
   monCommentaire = 'Rien à signaler...';
-  submitHandler(f) {
-    console.log(f);
+  showRegister = true;
+  showError = false;
+  private authSer = inject(AuthService);
+  submitHandler(f: NgForm) {
+    if (this.showRegister) {
+      this.authSer.inscription(f.value).subscribe({
+        next: (response: any) => {
+          alert(response.message);
+          this.toggleShowRegister();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    } else {
+      this.authSer.seConnecter(f.value).subscribe({
+        next: (response: any) => {
+          alert(response.message);
+          localStorage.setItem('access_token', response.token);
+        },
+        error: (err) => {
+          this.showError = true;
+          f.reset();
+        },
+      });
+    }
+  }
+
+  toggleShowRegister() {
+    this.showRegister = !this.showRegister;
   }
 }

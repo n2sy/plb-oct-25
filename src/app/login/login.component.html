@@ -1,9 +1,14 @@
+@if (showError) {
+<div class="alert alert-danger">Identifiants invalides</div>
+
+}
+
 <form #f="ngForm">
   <label>Nom d'utilisateur</label>
   <input
     #inpLogin="ngModel"
     ngModel
-    name="login"
+    name="email"
     required
     email
     type="text"
@@ -22,7 +27,39 @@
     type="text"
     class="form-control"
   />
-  <label>Compétence</label>
+
+  <br />
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-8">
+      @if (showRegister) {
+      <button (click)="submitHandler(f)" type="submit" class="btn btn-primary">
+        S'inscrire
+      </button>
+      <button
+        (click)="toggleShowRegister()"
+        type="submit"
+        class="btn btn-warning"
+      >
+        Basculer vers Login
+      </button>
+
+      } @else {
+      <button (click)="submitHandler(f)" type="submit" class="btn btn-info">
+        Se connecter
+      </button>
+      <button
+        (click)="toggleShowRegister()"
+        type="submit"
+        class="btn btn-danger"
+      >
+        Basculer vers Register
+      </button>
+
+      }
+    </div>
+  </div>
+  <!-- <label>Compétence</label>
   <select
     name="competence"
     [ngModel]="competenceParDefaut"
@@ -67,18 +104,9 @@
   } @if (inpError.errors["pattern"]) {
   <div class="alert alert-danger">Le pattern est 'nidhal'</div>
 
-  } }
+  } } -->
 
-  <br />
-  <button
-    [disabled]="f.invalid"
-    (click)="submitHandler(f)"
-    type="submit"
-    class="btn btn-primary"
-  >
-    Se connecter
-  </button>
-  <pre>
+  <!-- <pre>
     {{ f.value | json }}
-  </pre>
+  </pre> -->
 </form>
