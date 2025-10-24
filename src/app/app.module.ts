@@ -27,6 +27,7 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { LoginComponent } from './login/login.component';
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, FormsModule, ROUTING_PLB],
   //providers: [],
-  providers: [FirstService, SecondService],
+  providers: [FirstService, SecondService, provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

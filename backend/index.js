@@ -27,11 +27,11 @@ app.use("/auth", authRoutes);
 app.use("/cv", cvRoutes);
 
 app.use((error, req, res, next) => {
-  if (error.code === "LIMIT_FILE_SIZE") {
-    return res.status(400).json({
-      message: "Le fichier est trop volumineux. Taille maximale : 1 Mo.",
-    });
-  }
+  //   if (error.code === "LIMIT_FILE_SIZE") {
+  //     return res.status(400).json({
+  //       message: "Le fichier est trop volumineux. Taille maximale : 1 Mo.",
+  //     });
+  //   }
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;
@@ -43,5 +43,5 @@ mongoose
     `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.projectname}.cpsst.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`
     // `mongodb+srv://${process.env.username}:${process.env.password}rty@cvproject.cpsst.mongodb.net/${process.env.bdname}`
   )
-  .then(app.listen(Number(process.env.port), console.log("Server started !")))
+  .then(app.listen(3000, console.log("Server started !")))
   .catch((err) => console.log(err));

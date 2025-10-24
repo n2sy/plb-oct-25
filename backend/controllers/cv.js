@@ -32,7 +32,7 @@ exports.getCandidat = (req, res, next) => {
     });
 };
 exports.createCandidat = (req, res, next) => {
-  let newP = _.pick(req.body, ["prenom", "nom", "age", "profession"]);
+  let newP = _.pick(req.body, ["prenom", "nom", "age", "profession", "avatar"]);
 
   if (req.body.avatar) {
     const urlAvatar = req.protocol + "://" + req.get("host");

@@ -21,8 +21,17 @@ export class InfosComponent {
     //2eme version
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.candidatCible = this.CandidatSer.getCandidatById(p.get('id'));
-        if (!this.candidatCible) this.router.navigateByUrl('/not-found');
+        this.CandidatSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response: Candidat) => {
+            this.candidatCible = response;
+          },
+          error: (error) => {
+            console.log(error);
+
+            alert("Aucun candidat n'existe avec cet id");
+            this.router.navigateByUrl('/not-found');
+          },
+        });
       },
     });
 

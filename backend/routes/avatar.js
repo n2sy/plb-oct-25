@@ -29,9 +29,7 @@ const upload = multer.diskStorage({
 const router = express.Router();
 router.post(
   "",
-  multer({ storage: upload, limits: { fileSize: 1 * 1024 * 1024 } }).single(
-    "avatar"
-  ),
+  multer({ storage: upload }).single("avatar"),
   avatarCtrl.postAvatar
 );
 module.exports = router;
