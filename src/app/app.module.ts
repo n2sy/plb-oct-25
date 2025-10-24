@@ -27,7 +27,8 @@ import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { addTokenInterceptor } from './add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,11 @@ import { provideHttpClient } from '@angular/common/http';
   ], // Composant, directive, pipe doit etre déclaré obligatoirement dans un module
   imports: [BrowserModule, FormsModule, ROUTING_PLB],
   //providers: [],
-  providers: [FirstService, SecondService, provideHttpClient()],
+  providers: [
+    FirstService,
+    SecondService,
+    provideHttpClient(withInterceptors([addTokenInterceptor])),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

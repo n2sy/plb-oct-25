@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,12 @@ export class GestionCandidatsService {
     this.tabCandidats.push(newCand);
   }
   addCandidateAPI(newCand) {
-    return this.http.post(`${this.url}/free`, newCand);
+    // let token = localStorage.getItem('access_token');
+    // if (token) {
+    //   let h = new HttpHeaders().append('Authorization', `bearer ${token}`);
+    //   return this.http.post(`${this.url}`, newCand, { headers: h });
+    // }
+    return this.http.post(`${this.url}`, newCand);
   }
 
   uploadAvatar(formData) {
