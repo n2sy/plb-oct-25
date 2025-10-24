@@ -15,14 +15,28 @@ export class EditComponent {
   candidatAMettreAJour: Candidat;
 
   ngOnInit() {
-    this.candidatAMettreAJour = this.candSer.getCandidatById(
-      this.activatedRoute.snapshot.paramMap.get('id')
-    );
+    this.candSer
+      .getCandidatByIdAPI(this.activatedRoute.snapshot.paramMap.get('id'))
+      .subscribe({
+        next: (response: Candidat) => {
+          this.candidatAMettreAJour = response;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   submitHandler(fValue) {
     fValue._id = this.candidatAMettreAJour._id;
-    this.candSer.updateCandidat(fValue);
-    this.router.navigateByUrl('/cv');
+    this.candSer.updateCandidatAPI(fValue).subscribe({
+      next: (response: any) => {
+        alert(response.message);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

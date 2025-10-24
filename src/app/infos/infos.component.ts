@@ -13,7 +13,7 @@ export class InfosComponent {
   candidatCible: Candidat;
   private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
-  private CandidatSer = inject(GestionCandidatsService);
+  private candidatSer = inject(GestionCandidatsService);
 
   ngOnInit() {
     //1ere version
@@ -21,7 +21,7 @@ export class InfosComponent {
     //2eme version
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.CandidatSer.getCandidatByIdAPI(p.get('id')).subscribe({
+        this.candidatSer.getCandidatByIdAPI(p.get('id')).subscribe({
           next: (response: Candidat) => {
             this.candidatCible = response;
           },
@@ -36,5 +36,16 @@ export class InfosComponent {
     });
 
     //
+  }
+
+  deleteHandler() {
+    if (confirm('Etes-vous sûr de vouloir supprimer ce candidat ?')) {
+      this.candidatSer.deleteCandidatAPI(this.candidatCible._id).subscribe({
+        next: (response: any) => {
+          alert(response.message);
+          this.router.navigateByUrl('/cv');
+        },
+      });
+    }
   }
 }

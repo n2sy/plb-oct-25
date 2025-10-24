@@ -52,4 +52,11 @@ export class GestionCandidatsService {
     let i = this.tabCandidats.findIndex((element) => element._id == uCand._id);
     this.tabCandidats[i] = uCand;
   }
+  updateCandidatAPI(uCand) {
+    return this.http.put(`${this.url}/free/${uCand._id}`, uCand);
+  }
+
+  deleteCandidatAPI(candId) {
+    return this.http.delete(`${this.url}/free/${candId}`);
+  }
 }

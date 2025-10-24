@@ -1,35 +1,35 @@
 <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
   <label>Prénom</label>
   <input
-    [ngModel]="candidatAMettreAJour.prenom"
+    [ngModel]="candidatAMettreAJour?.prenom"
     name="prenom"
     type="text"
     class="form-control"
   />
   <label>Nom</label>
   <input
-    [ngModel]="candidatAMettreAJour.nom"
+    [ngModel]="candidatAMettreAJour?.nom"
     name="nom"
     type="text"
     class="form-control"
   />
   <label>Age</label>
   <input
-    [ngModel]="candidatAMettreAJour.age"
+    [ngModel]="candidatAMettreAJour?.age"
     name="age"
     type="number"
     class="form-control"
   />
   <label>Profession</label>
   <input
-    [ngModel]="candidatAMettreAJour.profession"
+    [ngModel]="candidatAMettreAJour?.profession"
     name="profession"
     type="text"
     class="form-control"
   />
   <label>Avatar</label>
   <input
-    [ngModel]="candidatAMettreAJour.avatar"
+    [ngModel]="candidatAMettreAJour?.avatar"
     name="avatar"
     type="text"
     class="form-control"
