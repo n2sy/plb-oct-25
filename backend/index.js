@@ -40,13 +40,8 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.projectname}.cpsst.mongodb.net/${process.env.bdname}?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.projectname}.cpsst.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`
     // `mongodb+srv://${process.env.username}:${process.env.password}rty@cvproject.cpsst.mongodb.net/${process.env.bdname}`
   )
-  .then(
-    app.listen(
-      Number(process.env.PORT) || 3000,
-      console.log("Server started !")
-    )
-  )
+  .then(app.listen(Number(process.env.port), console.log("Server started !")))
   .catch((err) => console.log(err));

@@ -29,9 +29,9 @@ export class CvComponent {
     this.selectedCandidate = cand;
   }
 
-  ajouterCandidat() {
-    this.candidatSer.addCandidate();
-  }
+  //   ajouterCandidat() {
+  //     this.candidatSer.addCandidate();
+  //   }
 
   showListCandidates() {
     console.log(this.candidatSer.getAllCandidates());

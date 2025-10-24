@@ -8,6 +8,7 @@ import { InfosComponent } from './infos/infos.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 let myRoutes: Routes = [
   { path: '', component: AccueilComponent },
@@ -28,6 +29,7 @@ let myRoutes: Routes = [
   { path: 'servers', component: ManageServersComponent },
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'direct', component: DirectComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];

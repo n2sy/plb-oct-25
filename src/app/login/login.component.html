@@ -1,0 +1,84 @@
+<form #f="ngForm">
+  <label>Nom d'utilisateur</label>
+  <input
+    #inpLogin="ngModel"
+    ngModel
+    name="login"
+    required
+    email
+    type="text"
+    class="form-control"
+  />
+  @if (inpLogin.invalid && inpLogin.touched) {
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+
+  }
+  <label>Mot de passe</label>
+  <input
+    ngModel
+    required
+    minlength="5"
+    name="password"
+    type="text"
+    class="form-control"
+  />
+  <label>Compétence</label>
+  <select
+    name="competence"
+    [ngModel]="competenceParDefaut"
+    class="form-control"
+  >
+    <option value=""></option>
+    <option value="js">Javascript</option>
+    <option value="php">Php</option>
+    <option value="python">Python</option>
+  </select>
+  <hr />
+  Compétence Par défaut : {{ competenceParDefaut }}
+  <hr />
+
+  <textarea
+    [(ngModel)]="monCommentaire"
+    class="form-control"
+    name="commentaire"
+    cols="5"
+    rows="4"
+  ></textarea>
+  <hr />
+  Commentaire : {{ monCommentaire }}
+  <hr />
+
+  <input
+    #inpError="ngModel"
+    ngModel
+    name="erreurs"
+    required
+    minlength="5"
+    pattern="nidhal"
+    type="text"
+    class="form-control"
+  />
+  @if(inpError.invalid) { @if (inpError.errors["required"]) {
+  <div class="alert alert-danger">Ce champ est obligatoire</div>
+
+  } @if (inpError.errors["minlength"]) {
+  <div class="alert alert-danger">Le nombre minimum de caractères est 5</div>
+
+  } @if (inpError.errors["pattern"]) {
+  <div class="alert alert-danger">Le pattern est 'nidhal'</div>
+
+  } }
+
+  <br />
+  <button
+    [disabled]="f.invalid"
+    (click)="submitHandler(f)"
+    type="submit"
+    class="btn btn-primary"
+  >
+    Se connecter
+  </button>
+  <pre>
+    {{ f.value | json }}
+  </pre>
+</form>
