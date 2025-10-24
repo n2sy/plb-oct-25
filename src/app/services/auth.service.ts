@@ -16,7 +16,9 @@ export class AuthService {
     return this.http.post(`${this.url}/login`, identifiants);
   }
 
-  seDeconnecter() {}
+  seDeconnecter() {
+    localStorage.removeItem('access_token');
+  }
 
   estConnecte() {
     let token = localStorage.getItem('access_token');

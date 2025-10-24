@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
   styleUrl: './add.component.css',
 })
 export class AddComponent {
+  isSubmitted = false;
   private candidatSer = inject(GestionCandidatsService);
   private router = inject(Router);
+
   submitHandler(fValue, e) {
+    this.isSubmitted = true;
     let formData = new FormData();
     formData.set('avatar', e.target[4].files[0]);
     this.candidatSer.uploadAvatar(formData).subscribe({

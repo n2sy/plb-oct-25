@@ -17,11 +17,14 @@
       >Cv</a
     >
   </li>
+  @if (authService.estConnecte()) {
   <li class="nav-item">
     <a class="nav-link" routerLink="cv/add" routerLinkActive="active"
       >Ajouter Cv</a
     >
   </li>
+
+  }
 
   <li class="nav-item">
     <a class="nav-link" routerLink="accounts" routerLinkActive="active"
@@ -33,7 +36,15 @@
       >Servers</a
     >
   </li>
+
+  @if (!authService.estConnecte()) {
   <li class="nav-item">
     <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
   </li>
+  } @else {
+  <li class="nav-item">
+    <a class="nav-link" (click)="authService.seDeconnecter()">Logout</a>
+  </li>
+
+  }
 </ul>

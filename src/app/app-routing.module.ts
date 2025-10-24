@@ -11,6 +11,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { allowGuard } from './guards/allow.guard';
 import { blockGuard } from './guards/block.guard';
+import { quitterLoginGuard } from './guards/quitter-login.guard';
+import { quitterFormGuard } from './guards/quitter-form.guard';
 
 let myRoutes: Routes = [
   { path: '', component: AccueilComponent },
@@ -18,7 +20,12 @@ let myRoutes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddComponent, canActivate: [allowGuard] },
+      {
+        path: 'add',
+        component: AddComponent,
+        canActivate: [allowGuard],
+        canDeactivate: [quitterFormGuard],
+      },
       {
         path: ':id',
         children: [
@@ -31,7 +38,12 @@ let myRoutes: Routes = [
   { path: 'servers', component: ManageServersComponent },
   { path: 'accounts', component: HomeAccountComponent },
   { path: 'direct', component: DirectComponent },
-  { path: 'login', component: LoginComponent, canActivate: [blockGuard] },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [blockGuard],
+    canDeactivate: [quitterLoginGuard],
+  },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
